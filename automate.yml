@@ -21,6 +21,16 @@
         path: ./.terraform
         state: absent
 
+    - name: Remove Terraform state
+      ansible.builtin.file:
+        path: ./terraform.tfstate.backup
+        state: absent
+
+    - name: Remove Terraform state
+      ansible.builtin.file:
+        path: ./terraform.tfstate
+        state: absent
+
     - name: first Terraform init
       command: podman run --rm -it docker.io/hashicorp/terraform:latest init
       register: firstinit

@@ -1,4 +1,4 @@
-project_id = "playground-s-11-ce57490a"
+project_id = "playground-s-11-8d059ef4"
 region     = "us-central1"
 gke_vpc    = "gke-vpc"
 psub_name  = "primary-subnet"
