@@ -2,9 +2,9 @@ update your key
 
 gcpiam.json
 
-update your project
+update your project id
 
-provider.tf
+terraform.tfvars
 
 run
 

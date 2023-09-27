@@ -1,7 +1,7 @@
 provider "google" {
   credentials = file("gcpiam.json")
 
-  project = "playground-s-11-ce57490a"
+  project = var.project_id
   region  = "us-central1"
   zone    = "us-central1-c"
 }
