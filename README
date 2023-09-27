@@ -1,0 +1,11 @@
+update your key
+
+gcpiam.json
+
+update your project
+
+provider.tf
+
+run
+
+ansible-playbook automate.yml

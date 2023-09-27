@@ -1,0 +1,34 @@
+---
+
+- name: Automate lab env for terraform
+  gather_facts: true
+  hosts: localhost
+  tasks:
+
+    - name: Get present working directory for config
+      command: pwd
+      register: pwd
+
+    - debug: msg="{{pwd.stdout}}"
+
+    - name: Remove Terraform lock file
+      ansible.builtin.file:
+        path: ./.terraform.lock.hcl
+        state: absent
+
+    - name: Remove terraform directory
+      ansible.builtin.file:
+        path: ./.terraform
+        state: absent
+
+    - name: first Terraform init
+      command: podman run --rm -it docker.io/hashicorp/terraform:latest init
+      register: firstinit
+
+    - debug: msg="{{firstinit.stdout_lines}}"
+
+    - name: Second Terraform init
+      command: podman run --rm -it -v {{pwd.stdout}}:/data -w /data docker.io/hashicorp/terraform:latest init
+      register: secondinit
+
+    - debug: msg="{{secondinit.stdout_lines}}"
