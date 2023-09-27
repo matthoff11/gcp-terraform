@@ -30,5 +30,14 @@
     - name: Second Terraform init
       command: podman run --rm -it -v {{pwd.stdout}}:/data -w /data docker.io/hashicorp/terraform:latest init
       register: secondinit
-
+  
     - debug: msg="{{secondinit.stdout_lines}}"
+
+    - name: Set alias for tform in bashrc
+      ansible.builtin.lineinfile:
+        path: ~/.bashrc
+        regexp: '^alias tform'
+        line: "alias tform='podman run --rm -it -v {{pwd.stdout}}:/data -w /data docker.io/hashicorp/terraform:latest'"
+        create: yes
+
+    - debug: msg="source ~/.bashrc"

@@ -9,3 +9,7 @@ terraform.tfvars
 run
 
 ansible-playbook automate.yml
+
+run
+
+source ~/.bashrc
