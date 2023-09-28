@@ -4,7 +4,7 @@ resource "google_compute_network" "gke_network" {
   auto_create_subnetworks = false
 }
 
-resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" {
+resource "google_compute_subnetwork" "network_with_private_secondary_ip_ranges" {
   name          = var.psub_name
   ip_cidr_range = var.psub_range
   region        = var.region

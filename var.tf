@@ -25,3 +25,17 @@ variable "ssub_name" {
 variable "ssub_range" {
   type = string
 }
+
+variable "gke_username" {
+  type = string
+}
+
+variable "gke_password" {
+  type        = string
+  description = "gke password"
+}
+
+variable "gke_num_nodes" {
+  type        = number
+  description = "number of gke nodes"
+}
