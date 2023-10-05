@@ -3,11 +3,13 @@ region     = "us-central1"
 
 #network
 
-gke_vpc    = "gke-vpc"
-psub_name  = "primary-subnet"
-psub_range = "10.0.0.0/28"
-ssub_name  = "secondary-subnet"
-ssub_range = "10.1.0.0/24"
+gke_vpc     = "gke-vpc"
+psub_name   = "primary-subnet"
+psub_range  = "10.0.0.0/24"
+ssub_name   = "pod-secondary-subnet"
+ssub_range  = "10.1.0.0/16"
+ssub_name2  = "service-secondary-subnet"
+ssub_range2 = "10.2.0.0/20"
 
 #gke
 

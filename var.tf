@@ -26,6 +26,14 @@ variable "ssub_range" {
   type = string
 }
 
+variable "ssub_name2" {
+  type = string
+}
+
+variable "ssub_range2" {
+  type = string
+}
+
 variable "gke_username" {
   type = string
 }

@@ -15,10 +15,15 @@ resource "google_container_cluster" "primary" {
 
   network    = google_compute_network.gke_network.name
   subnetwork = google_compute_subnetwork.network_with_private_secondary_ip_ranges.name
+
+  ip_allocation_policy {
+    cluster_secondary_range_name  = var.ssub_name
+    services_secondary_range_name = var.ssub_name2
+  }
 }
 
 resource "google_container_node_pool" "primary_nodes" {
-  name       = google_container_cluster.primary.name
+  name       = "${google_container_cluster.primary.name}-pool"
   location   = var.region
   cluster    = google_container_cluster.primary.name
 
