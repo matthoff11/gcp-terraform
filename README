@@ -12,4 +12,4 @@ ansible-playbook automate.yml
 
 run
 
-source ~/.bashrc
+source /etc/profile.d/zzz-ansible-lab.sh

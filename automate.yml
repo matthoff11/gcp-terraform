@@ -43,11 +43,17 @@
   
     - debug: msg="{{secondinit.stdout_lines}}"
 
+    - name: Remove Terraform state
+      ansible.builtin.file:
+        path: /etc/profile.d/zzz-ansible-lab.sh
+        state: touch
+        mode: '0755'
+
     - name: Set alias for tform in bashrc
       ansible.builtin.lineinfile:
-        path: ~/.bashrc
+        path: /etc/profile.d/zzz-ansible-lab.sh
         regexp: '^alias tform'
         line: "alias tform='podman run --rm -it -v {{pwd.stdout}}:/data -w /data docker.io/hashicorp/terraform:latest'"
         create: yes
 
-    - debug: msg="source ~/.bashrc"
+    - debug: msg="source /etc/profile.d/zzz-ansible-lab.sh"
