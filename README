@@ -8,7 +8,7 @@ terraform.tfvars
 
 run
 
-ansible-playbook automate.yml
+ansible-playbook automate.yml --become
 
 run
 

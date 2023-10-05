@@ -3,6 +3,9 @@
 - name: Automate lab env for terraform
   gather_facts: true
   hosts: localhost
+  #become: true
+  #become_user: root
+  #become_method: enable
   tasks:
 
     - name: Get present working directory for config
@@ -43,11 +46,11 @@
   
     - debug: msg="{{secondinit.stdout_lines}}"
 
-    - name: Remove Terraform state
+    - name: Make sure alias file exists
       ansible.builtin.file:
         path: /etc/profile.d/zzz-ansible-lab.sh
         state: touch
-        mode: '0755'
+        mode: '0644'
 
     - name: Set alias for tform in bashrc
       ansible.builtin.lineinfile:
