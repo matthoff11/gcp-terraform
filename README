@@ -1,3 +1,8 @@
+#Install ansible ubuntu
+apt-add-repository ppa:ansible/ansible
+apt install ansible
+
+
 update your key
 
 gcpiam.json
