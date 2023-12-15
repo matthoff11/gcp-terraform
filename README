@@ -1,19 +1,24 @@
+sudo apt-get update
+sudo apt-get -y install podman
+
 #Install ansible ubuntu
-apt-add-repository ppa:ansible/ansible
-apt install ansible
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt install ansible
 
 
 update your key
 
-gcpiam.json
+vim gcpiam.json
 
 update your project id
 
-terraform.tfvars
+vim terraform.tfvars
 
 run
 
-ansible-playbook automate.yml --become
+sudo ansible-playbook automate.yml
+
+#ansible-playbook automate.yml --become
 
 run
 
