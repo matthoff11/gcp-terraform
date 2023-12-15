@@ -23,3 +23,6 @@ sudo ansible-playbook automate.yml
 run
 
 source /etc/profile.d/zzz-ansible-lab.sh
+
+tform plan
+tform apply
